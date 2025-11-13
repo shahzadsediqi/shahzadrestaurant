@@ -14,9 +14,14 @@
   rel="stylesheet"
 />
  <title>resturant website</title>
+ <!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+ 
 </head>
 <body>
-        <header>
+        <header  date-aos="">
 
             <a href="#home" class="logo">
               <i class="fa-solid fa-burger"></i>
@@ -38,7 +43,7 @@
             </ul>
           </nav>
         </header>
-        <section class="section-1" id="home">
+        <section class="section-1" id="home" data-aos="fade-right">
           <div class="text">
         <P>IT IS GOOD TIME FOR THE GREAT TASTE <br>OF BURGER</P>
       <h1>BURGER</h1>
@@ -51,7 +56,7 @@
       </section>
 
       <!--section 2-->
-      <section class="section-2" id="special">
+      <section class="section-2" id="special" data-aos="fade-right">
         <h1>Most popular </h1>
         <h3>try it out today
         </h3>
@@ -67,7 +72,7 @@
         </div>
       </section>
       <!--section3-->
-      <section id="menue" class="section-3">
+      <section id="menue" class="section-3" data-aos="fade-right">
         <div class="text">
         <h4>Always Tasty Burger</h4>
         <h1>Choose & Enjoy</h1>
@@ -98,7 +103,7 @@
       </section>
 
       <!--section4-->
-<section class="section-4" id="event">
+<section class="section-4" id="event" data-aos="fade-right">
   <div class="event-card">
     <div class="event-text">
       <h4>Discover</h4>
@@ -115,7 +120,7 @@
 
 <!--section5-->
 
-<section class="section-5" id="contact">
+<section class="section-5" id="contact" data-aos="fade-right">
 
   <div class="contact-text">
     <h4>Reservation</h4>
@@ -144,7 +149,7 @@
 
 </section>
 <!--footer-->
-<footer>
+<footer data-aos="fade-right">
   <div id="footer-info">
     <div class="footer-text">
         <h2><i class="fa-solid fa-burger"></i>
@@ -199,11 +204,34 @@ window.addEventListener("resize", () => {
     icon.style.removeProperty("display"); // remove inline style so CSS takes over
   }
 });
-
-
-
-
     </script>
+
+<script>
+AOS.init({
+  duration: 1000, // animation duration in ms
+  once: true,     // whether animation should happen only once
+});
+</script>
+
+
+
+<script>
+  AOS.init({
+    duration: 1000,
+    once: false, // allow animations every time you scroll
+  });
+  
+  // re-trigger AOS animations when clicking navigation links
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => {
+        AOS.refreshHard();
+      }, 500);
+    });
+  });
+  </script>
+  
+
 </body>
 </html>
 
